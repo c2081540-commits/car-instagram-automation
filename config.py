@@ -1,7 +1,11 @@
 import os
 
 META_API_VERSION = os.getenv("META_API_VERSION", "v24.0")
-GRAPH_BASE_URL = f"https://graph.facebook.com/{META_API_VERSION}"
+# Instagram API with Instagram Login uses graph.instagram.com.
+GRAPH_BASE_URL = os.getenv(
+    "GRAPH_BASE_URL",
+    f"https://graph.instagram.com/{META_API_VERSION}",
+).rstrip("/")
 INSTAGRAM_USER_ID = os.getenv("INSTAGRAM_USER_ID", "").strip()
 INSTAGRAM_ACCESS_TOKEN = os.getenv("INSTAGRAM_ACCESS_TOKEN", "").strip()
 LATE_GRACE_MINUTES = int(os.getenv("LATE_GRACE_MINUTES", "15"))

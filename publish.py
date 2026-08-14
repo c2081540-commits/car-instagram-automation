@@ -4,6 +4,7 @@ from datetime import datetime, timedelta, timezone
 
 from history import record_publish
 from instagram import publish_story
+from media_url import resolve_media_url
 from post_queue import get_due_post, get_post, update_post
 
 JST = timezone(timedelta(hours=9))
@@ -27,7 +28,8 @@ def _publish_selected(post, mode):
             if frame.get("instagram_media_id"):
                 results.append(dict(frame))
                 continue
-            result = publish_story(frame["media_url"], frame.get("media_kind", "IMAGE"))
+            media_url = resolve_media_url(frame)
+            result = publish_story(media_url, frame.get("media_kind", "IMAGE"))
             saved = dict(frame)
             saved.update(result)
             saved["posted_at"] = datetime.now(JST).isoformat(timespec="seconds")

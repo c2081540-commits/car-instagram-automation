@@ -12,36 +12,32 @@
 - `scheduled_at` の解釈、due判定、期限切れ判定、投稿対象選択は **Pythonだけ** が行う。
 - 将来のGASはON/OFF確認と `publish_due.yml` の起動だけを担当し、予約判定を実装しない。
 - 手動投稿と予約投稿は同じ `publish.py -> instagram.py` を使う。
-- 週次分析とInsight取得は分離する。`insights.py` は取得可能期間内に生データを `data/insights_raw.json` へ蓄積するだけで、分析は別工程が保存済みデータを読む。
+- 週次分析とInsight取得は分離する。Insight分析は保存済みデータを読む。
 
 ## Files
 
 - `instagram.py` - Meta API接続、Story container作成、公開、Insight取得
+- `media_url.py` - repository相対メディアパスをMeta取得用raw URLへ解決
 - `post_queue.py` - 予約・due・期限切れ判定の唯一の実装
 - `publish.py` - 自動/手動共通の投稿処理
-- `history.py` - Instagram media IDを含む投稿履歴
-- `insights.py` - Story Insight生データ回収
 - `data/queue.json` - 予約正本
-- `data/history.json` - 投稿履歴
-- `data/insights_raw.json` - Insightスナップショット
+- `media/stories/YYYY/MM/` - Stories本番メディア
 
-## Queue example
+## Queue format
 
 ```json
 {
   "posts": [
     {
-      "content_id": "CAR-STORY-TEST-001",
-      "platform": "instagram",
-      "media_type": "STORIES",
+      "content_id": "CAR-STORY-20260815-0800",
       "scheduled_at": "2026-08-15T08:00:00+09:00",
       "status": "pending",
       "retry_count": 0,
       "frames": [
         {
           "order": 1,
-          "media_kind": "IMAGE",
-          "media_url": "https://public.example/story.jpg"
+          "media": "media/stories/2026/08/2026-08-15_0800_holiday-discount_01.png",
+          "media_kind": "IMAGE"
         }
       ]
     }
@@ -49,7 +45,13 @@
 }
 ```
 
-Metaが取得できる公開HTTPS URLを `media_url` に指定する。
+`publish.py` は `frames[].media` を次の形式へ解決してMeta APIへ渡す。
+
+```text
+https://raw.githubusercontent.com/{owner}/{repository}/{ref}/{media}
+```
+
+既定値はこのpublic repositoryの `main`。必要時は `MEDIA_GITHUB_REPOSITORY` と `MEDIA_GITHUB_REF` で上書きする。
 
 ## GitHub configuration
 
@@ -62,14 +64,8 @@ Repository Variables (optional):
 
 - `META_API_VERSION` (default `v24.0`)
 - `LATE_GRACE_MINUTES` (default `15`)
-- `STORY_INSIGHT_METRICS` (実アカウント/APIで確認済みのStory指標だけを設定)
+- `MEDIA_GITHUB_REPOSITORY`
+- `MEDIA_GITHUB_REF`
+- `STORY_INSIGHT_METRICS`
 
-## Initial verification sequence
-
-1. `Meta Connection Check` を手動実行して接続確認。
-2. 公開HTTPS URLのテスト画像1枚を `data/queue.json` に `content_id` 付きで登録。
-3. `Manual Story Publish` を `content_id` 指定で実行。
-4. `data/history.json` に `instagram_media_id` が保存されたことを確認。
-5. `Collect Story Insights` を同じ `content_id` で実行。Storyで実際に利用可能なmetricのみ採用し、生レスポンスを保存する。
-
-この段階ではGAS接続・本番予約投入・週次分析は行わない。
+Instagram投稿はMeta接続確認と明示的な運用開始後に実行する。

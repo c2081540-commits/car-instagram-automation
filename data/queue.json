@@ -1,3 +1,140 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "content_id": "CAR-STORY-20260815-0800",
+      "scheduled_at": "2026-08-15T08:00:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-15_0800_holiday-discount_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-15_0800_holiday-discount_02.png",
+          "media_kind": "IMAGE"
+        }
+      ]
+    },
+    {
+      "content_id": "CAR-STORY-20260815-1500",
+      "scheduled_at": "2026-08-15T15:00:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-15_1500_cabin-heat_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-15_1500_cabin-heat_02.png",
+          "media_kind": "IMAGE"
+        }
+      ]
+    },
+    {
+      "content_id": "CAR-STORY-20260816-1130",
+      "scheduled_at": "2026-08-16T11:30:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-16_1130_tire-check_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-16_1130_tire-check_02.png",
+          "media_kind": "IMAGE"
+        }
+      ]
+    },
+    {
+      "content_id": "CAR-STORY-20260817-1930",
+      "scheduled_at": "2026-08-17T19:30:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-17_1930_post-trip-check_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-17_1930_post-trip-check_02.png",
+          "media_kind": "IMAGE"
+        }
+      ]
+    },
+    {
+      "content_id": "CAR-STORY-20260819-2000",
+      "scheduled_at": "2026-08-19T20:00:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-19_2000_annual-cost-guide_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-19_2000_annual-cost-guide_02.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 3,
+          "media": "media/stories/2026/08/2026-08-19_2000_annual-cost-guide_03.png",
+          "media_kind": "IMAGE"
+        }
+      ]
+    },
+    {
+      "content_id": "CAR-STORY-20260820-1215",
+      "scheduled_at": "2026-08-20T12:15:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-20_1215_inspection-estimate_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-20_1215_inspection-estimate_02.png",
+          "media_kind": "IMAGE"
+        }
+      ]
+    },
+    {
+      "content_id": "CAR-STORY-20260821-2030",
+      "scheduled_at": "2026-08-21T20:30:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-21_2030_driver-scope-insurance_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-21_2030_driver-scope-insurance_02.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 3,
+          "media": "media/stories/2026/08/2026-08-21_2030_driver-scope-insurance_03.png",
+          "media_kind": "IMAGE"
+        }
+      ]
+    }
+  ]
 }

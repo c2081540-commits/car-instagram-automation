@@ -1,0 +1,45 @@
+name: Collect Story Insights
+
+on:
+  workflow_dispatch:
+    inputs:
+      content_id:
+        description: "Published content_id"
+        required: true
+        type: string
+      metrics:
+        description: "Optional comma-separated verified Story metrics"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Collect raw insights
+        env:
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          META_API_VERSION: ${{ vars.META_API_VERSION || 'v24.0' }}
+          STORY_INSIGHT_METRICS: ${{ vars.STORY_INSIGHT_METRICS || 'views,reach,replies,navigation' }}
+        run: |
+          if [ -n "${{ inputs.metrics }}" ]; then
+            python insights.py --content-id "${{ inputs.content_id }}" --metrics "${{ inputs.metrics }}"
+          else
+            python insights.py --content-id "${{ inputs.content_id }}"
+          fi
+      - name: Persist raw snapshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/insights_raw.json
+          git diff --cached --quiet || git commit -m "Store raw Instagram Story insights"
+          git push

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#071827"/><stop offset="1" stop-color="#12344a"/></linearGradient></defs>
+<rect width="1080" height="1920" fill="url(#bg)"/>
+<text x="540" y="250" text-anchor="middle" fill="#ffd21f" font-size="92" font-weight="700" font-family="sans-serif">冠水路で</text>
+<text x="540" y="365" text-anchor="middle" fill="white" font-size="92" font-weight="700" font-family="sans-serif">やってはいけない3つ</text>
+<g font-family="sans-serif" font-weight="700">
+<rect x="80" y="520" width="920" height="300" rx="36" fill="#08131d" fill-opacity=".88"/>
+<circle cx="180" cy="670" r="68" fill="#ffd21f"/><text x="180" y="696" text-anchor="middle" font-size="72" fill="#071827">1</text>
+<text x="290" y="650" font-size="58" fill="white">見た目で水深を</text><text x="290" y="725" font-size="58" fill="#ffd21f">判断しない</text>
+<rect x="80" y="860" width="920" height="300" rx="36" fill="#08131d" fill-opacity=".88"/>
+<circle cx="180" cy="1010" r="68" fill="#ffd21f"/><text x="180" y="1036" text-anchor="middle" font-size="72" fill="#071827">2</text>
+<text x="290" y="990" font-size="58" fill="white">冠水路には入らず</text><text x="290" y="1065" font-size="58" fill="#ffd21f">迂回する</text>
+<rect x="80" y="1200" width="920" height="300" rx="36" fill="#08131d" fill-opacity=".88"/>
+<circle cx="180" cy="1350" r="68" fill="#ffd21f"/><text x="180" y="1376" text-anchor="middle" font-size="72" fill="#071827">3</text>
+<text x="290" y="1330" font-size="54" fill="white">浸水・停止した車は</text><text x="290" y="1405" font-size="58" fill="#ffd21f">再始動しない</text>
+</g>
+<path d="M0 1640 Q180 1580 360 1640 T720 1640 T1080 1640 V1920 H0Z" fill="#347ea3" opacity=".45"/>
+<text x="540" y="1760" text-anchor="middle" fill="white" font-size="48" font-family="sans-serif" font-weight="700">無理せず、安全第一で行動を。</text>
+</svg>

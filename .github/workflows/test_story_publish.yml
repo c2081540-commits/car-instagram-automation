@@ -21,18 +21,19 @@ jobs:
       - name: Build 1080x1920 JPEG test Story
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq librsvg2-bin
+          sudo apt-get install -y -qq librsvg2-bin fonts-noto-cjk
+          fc-match 'Noto Sans CJK JP'
           rsvg-convert -w 1080 -h 1920 media/test/story_flood_test.svg -o /tmp/story_flood_test.png
           python - <<'PY'
           from PIL import Image
-          Image.open('/tmp/story_flood_test.png').convert('RGB').save('media/test/story_flood_test.jpg', 'JPEG', quality=90, optimize=True)
+          Image.open('/tmp/story_flood_test.png').convert('RGB').save('media/test/story_flood_test.jpg', 'JPEG', quality=92, optimize=True)
           PY
       - name: Publish test media file to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add media/test/story_flood_test.jpg
-          git diff --cached --quiet || git commit -m "Build Story test JPEG"
+          git diff --cached --quiet || git commit -m "Build Story test JPEG with Japanese font"
           git push
           sleep 5
       - name: Publish isolated test Story
@@ -40,10 +41,10 @@ jobs:
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
           META_API_VERSION: ${{ vars.META_API_VERSION || 'v24.0' }}
-        run: python test_publish.py --test-id "FLOOD-STORY-TEST-20260814" --media-url "https://raw.githubusercontent.com/c2081540-commits/car-instagram-automation/main/media/test/story_flood_test.jpg"
+        run: python test_publish.py --test-id "FLOOD-STORY-TEST-20260814-FIXED" --media-url "https://raw.githubusercontent.com/c2081540-commits/car-instagram-automation/main/media/test/story_flood_test.jpg"
       - name: Persist test Instagram media ID
         run: |
           git pull --rebase
           git add data/test_history.json
-          git diff --cached --quiet || git commit -m "Record Story test publish"
+          git diff --cached --quiet || git commit -m "Record fixed Story test publish"
           git push

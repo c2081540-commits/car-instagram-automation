@@ -1,20 +1,75 @@
 # car-instagram-automation
 
-Instagram自動投稿基盤。制作工程とは分離し、完成済みメディアを指定日時にMeta公式API経由で投稿する。
+完成済みInstagramコンテンツをMeta公式APIへ配送する投稿基盤。制作工程とは分離する。
 
-## v1 scope
+## v1
 
-- Instagram Storiesの画像投稿
-- 完成済みStory画像 + 投稿日時を入力として扱う
-- GitHub Actionsによる定期実行
-- 二重投稿防止
-- 投稿成功/失敗の状態管理
-- エラーログ
+最初の実装対象は画像/動画Stories。Feed / Carousel / Reelsは将来拡張とし、予約・状態管理とInstagram固有処理を分離する。
 
-## Future
+### 重要原則
 
-共通基盤を維持したままFeed / Carousel / Reelsを追加できる構造にする。
+- `data/queue.json` が予約の正本。
+- `scheduled_at` の解釈、due判定、期限切れ判定、投稿対象選択は **Pythonだけ** が行う。
+- 将来のGASはON/OFF確認と `publish_due.yml` の起動だけを担当し、予約判定を実装しない。
+- 手動投稿と予約投稿は同じ `publish.py -> instagram.py` を使う。
+- 週次分析とInsight取得は分離する。`insights.py` は取得可能期間内に生データを `data/insights_raw.json` へ蓄積するだけで、分析は別工程が保存済みデータを読む。
 
-## Design principle
+## Files
 
-投稿基盤ではコンテンツを生成しない。画像・動画・キャプション等は制作側で完成させ、投稿基盤は配送のみ担当する。
+- `instagram.py` - Meta API接続、Story container作成、公開、Insight取得
+- `post_queue.py` - 予約・due・期限切れ判定の唯一の実装
+- `publish.py` - 自動/手動共通の投稿処理
+- `history.py` - Instagram media IDを含む投稿履歴
+- `insights.py` - Story Insight生データ回収
+- `data/queue.json` - 予約正本
+- `data/history.json` - 投稿履歴
+- `data/insights_raw.json` - Insightスナップショット
+
+## Queue example
+
+```json
+{
+  "posts": [
+    {
+      "content_id": "CAR-STORY-TEST-001",
+      "platform": "instagram",
+      "media_type": "STORIES",
+      "scheduled_at": "2026-08-15T08:00:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {
+          "order": 1,
+          "media_kind": "IMAGE",
+          "media_url": "https://public.example/story.jpg"
+        }
+      ]
+    }
+  ]
+}
+```
+
+Metaが取得できる公開HTTPS URLを `media_url` に指定する。
+
+## GitHub configuration
+
+Repository Secrets:
+
+- `INSTAGRAM_USER_ID`
+- `INSTAGRAM_ACCESS_TOKEN`
+
+Repository Variables (optional):
+
+- `META_API_VERSION` (default `v24.0`)
+- `LATE_GRACE_MINUTES` (default `15`)
+- `STORY_INSIGHT_METRICS` (実アカウント/APIで確認済みのStory指標だけを設定)
+
+## Initial verification sequence
+
+1. `Meta Connection Check` を手動実行して接続確認。
+2. 公開HTTPS URLのテスト画像1枚を `data/queue.json` に `content_id` 付きで登録。
+3. `Manual Story Publish` を `content_id` 指定で実行。
+4. `data/history.json` に `instagram_media_id` が保存されたことを確認。
+5. `Collect Story Insights` を同じ `content_id` で実行。Storyで実際に利用可能なmetricのみ採用し、生レスポンスを保存する。
+
+この段階ではGAS接続・本番予約投入・週次分析は行わない。

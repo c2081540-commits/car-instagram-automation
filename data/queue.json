@@ -29,20 +29,28 @@
     {
       "content_id": "CAR-STORY-20260815-1500",
       "scheduled_at": "2026-08-15T15:00:00+09:00",
-      "status": "pending",
+      "status": "posted",
       "retry_count": 0,
       "frames": [
         {
           "order": 1,
           "media": "media/stories/2026/08/2026-08-15_1500_cabin-heat_01.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18145252039495511",
+          "instagram_media_id": "17937281199349150",
+          "posted_at": "2026-08-15T15:00:49+09:00"
         },
         {
           "order": 2,
           "media": "media/stories/2026/08/2026-08-15_1500_cabin-heat_02.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18145252063495511",
+          "instagram_media_id": "18039525458684549",
+          "posted_at": "2026-08-15T15:01:00+09:00"
         }
-      ]
+      ],
+      "last_attempt_at": "2026-08-15T15:00:36+09:00",
+      "error": null
     },
     {
       "content_id": "CAR-STORY-20260816-1130",

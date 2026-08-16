@@ -159,6 +159,51 @@
           "media_kind": "IMAGE"
         }
       ]
+    },
+    {
+      "content_id": "CAR-STORY-20260817-1215",
+      "publication_id": "PUB-000005",
+      "scheduled_at": "2026-08-17T12:15:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {"order": 1, "media": "media/stories/2026/08/2026-08-17_1215_bird-dropping_01.png", "media_kind": "IMAGE"},
+        {"order": 2, "media": "media/stories/2026/08/2026-08-17_1215_bird-dropping_02.png", "media_kind": "IMAGE"}
+      ]
+    },
+    {
+      "content_id": "CAR-STORY-20260818-1930",
+      "publication_id": "PUB-000006",
+      "scheduled_at": "2026-08-18T19:30:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {"order": 1, "media": "media/stories/2026/08/2026-08-18_1930_shift-to-park_01.png", "media_kind": "IMAGE"},
+        {"order": 2, "media": "media/stories/2026/08/2026-08-18_1930_shift-to-park_02.png", "media_kind": "IMAGE"}
+      ]
+    },
+    {
+      "content_id": "CAR-STORY-20260819-0745",
+      "publication_id": "PUB-000007",
+      "scheduled_at": "2026-08-19T07:45:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {"order": 1, "media": "media/stories/2026/08/2026-08-19_0745_brake-noise_01.png", "media_kind": "IMAGE"},
+        {"order": 2, "media": "media/stories/2026/08/2026-08-19_0745_brake-noise_02.png", "media_kind": "IMAGE"}
+      ]
+    },
+    {
+      "content_id": "CAR-STORY-20260820-1830",
+      "publication_id": "PUB-000009",
+      "scheduled_at": "2026-08-20T18:30:00+09:00",
+      "status": "pending",
+      "retry_count": 0,
+      "frames": [
+        {"order": 1, "media": "media/stories/2026/08/2026-08-20_1830_tire-pressure_01.png", "media_kind": "IMAGE"},
+        {"order": 2, "media": "media/stories/2026/08/2026-08-20_1830_tire-pressure_02.png", "media_kind": "IMAGE"},
+        {"order": 3, "media": "media/stories/2026/08/2026-08-20_1830_tire-pressure_03.png", "media_kind": "IMAGE"}
+      ]
     }
   ]
 }

@@ -27,11 +27,12 @@ def save_raw(data):
     tmp.replace(INSIGHTS_PATH)
 
 
-def collect_for_media(content_id, frame_order, media_id, metrics=None):
+def collect_for_media(content_id, frame_order, media_id, metrics=None, publication_id=None):
     metrics = metrics or DEFAULT_METRICS
     payload = fetch_media_insights(media_id, metrics)
     snapshot = {
         "content_id": content_id,
+        "publication_id": publication_id,
         "frame_order": frame_order,
         "instagram_media_id": str(media_id),
         "collected_at": datetime.now(JST).isoformat(timespec="seconds"),
@@ -52,7 +53,13 @@ def collect_content(content_id, metrics=None):
     for frame in target.get("frames", []):
         media_id = frame.get("instagram_media_id")
         if media_id:
-            snapshots.append(collect_for_media(content_id, frame.get("order"), media_id, metrics=metrics))
+            snapshots.append(collect_for_media(
+                content_id,
+                frame.get("order"),
+                media_id,
+                metrics=metrics,
+                publication_id=target.get("publication_id"),
+            ))
     if not snapshots:
         raise RuntimeError(f"No Instagram media IDs stored for {content_id}")
     return snapshots

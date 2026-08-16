@@ -40,6 +40,7 @@ def record_publish(post, frames, status="posted", error=None):
     now = datetime.now(JST).isoformat(timespec="seconds")
     return upsert_post({
         "content_id": post.get("content_id"),
+        "publication_id": post.get("publication_id"),
         "platform": "instagram",
         "media_type": post.get("media_type", "STORIES"),
         "scheduled_at": post.get("scheduled_at"),

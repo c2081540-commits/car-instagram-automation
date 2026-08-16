@@ -55,20 +55,28 @@
     {
       "content_id": "CAR-STORY-20260816-1130",
       "scheduled_at": "2026-08-16T11:30:00+09:00",
-      "status": "pending",
+      "status": "posted",
       "retry_count": 0,
       "frames": [
         {
           "order": 1,
           "media": "media/stories/2026/08/2026-08-16_1130_tire-check_01.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18145357162495511",
+          "instagram_media_id": "18093051851096975",
+          "posted_at": "2026-08-16T11:30:53+09:00"
         },
         {
           "order": 2,
           "media": "media/stories/2026/08/2026-08-16_1130_tire-check_02.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18145357189495511",
+          "instagram_media_id": "17954162658243618",
+          "posted_at": "2026-08-16T11:31:02+09:00"
         }
-      ]
+      ],
+      "last_attempt_at": "2026-08-16T11:30:43+09:00",
+      "error": null
     },
     {
       "content_id": "CAR-STORY-20260817-1930",

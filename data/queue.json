@@ -164,12 +164,28 @@
       "content_id": "CAR-STORY-20260817-1215",
       "publication_id": "PUB-000005",
       "scheduled_at": "2026-08-17T12:15:00+09:00",
-      "status": "pending",
+      "status": "posted",
       "retry_count": 0,
       "frames": [
-        {"order": 1, "media": "media/stories/2026/08/2026-08-17_1215_bird-dropping_01.png", "media_kind": "IMAGE"},
-        {"order": 2, "media": "media/stories/2026/08/2026-08-17_1215_bird-dropping_02.png", "media_kind": "IMAGE"}
-      ]
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-17_1215_bird-dropping_01.png",
+          "media_kind": "IMAGE",
+          "container_id": "18145477537495511",
+          "instagram_media_id": "18554100793078393",
+          "posted_at": "2026-08-17T12:15:48+09:00"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-17_1215_bird-dropping_02.png",
+          "media_kind": "IMAGE",
+          "container_id": "18145477558495511",
+          "instagram_media_id": "18222583150331293",
+          "posted_at": "2026-08-17T12:16:00+09:00"
+        }
+      ],
+      "last_attempt_at": "2026-08-17T12:15:36+09:00",
+      "error": null
     },
     {
       "content_id": "CAR-STORY-20260818-1930",
@@ -178,8 +194,16 @@
       "status": "pending",
       "retry_count": 0,
       "frames": [
-        {"order": 1, "media": "media/stories/2026/08/2026-08-18_1930_shift-to-park_01.png", "media_kind": "IMAGE"},
-        {"order": 2, "media": "media/stories/2026/08/2026-08-18_1930_shift-to-park_02.png", "media_kind": "IMAGE"}
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-18_1930_shift-to-park_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-18_1930_shift-to-park_02.png",
+          "media_kind": "IMAGE"
+        }
       ]
     },
     {
@@ -189,8 +213,16 @@
       "status": "pending",
       "retry_count": 0,
       "frames": [
-        {"order": 1, "media": "media/stories/2026/08/2026-08-19_0745_brake-noise_01.png", "media_kind": "IMAGE"},
-        {"order": 2, "media": "media/stories/2026/08/2026-08-19_0745_brake-noise_02.png", "media_kind": "IMAGE"}
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-19_0745_brake-noise_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-19_0745_brake-noise_02.png",
+          "media_kind": "IMAGE"
+        }
       ]
     },
     {
@@ -200,9 +232,21 @@
       "status": "pending",
       "retry_count": 0,
       "frames": [
-        {"order": 1, "media": "media/stories/2026/08/2026-08-20_1830_tire-pressure_01.png", "media_kind": "IMAGE"},
-        {"order": 2, "media": "media/stories/2026/08/2026-08-20_1830_tire-pressure_02.png", "media_kind": "IMAGE"},
-        {"order": 3, "media": "media/stories/2026/08/2026-08-20_1830_tire-pressure_03.png", "media_kind": "IMAGE"}
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-20_1830_tire-pressure_01.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-20_1830_tire-pressure_02.png",
+          "media_kind": "IMAGE"
+        },
+        {
+          "order": 3,
+          "media": "media/stories/2026/08/2026-08-20_1830_tire-pressure_03.png",
+          "media_kind": "IMAGE"
+        }
       ]
     }
   ]

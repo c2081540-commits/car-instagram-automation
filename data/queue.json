@@ -199,20 +199,28 @@
       "content_id": "CAR-STORY-20260818-1930",
       "publication_id": "PUB-000006",
       "scheduled_at": "2026-08-18T19:30:00+09:00",
-      "status": "pending",
+      "status": "posted",
       "retry_count": 0,
       "frames": [
         {
           "order": 1,
           "media": "media/stories/2026/08/2026-08-18_1930_shift-to-park_01.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18145620796495511",
+          "instagram_media_id": "18125408512765920",
+          "posted_at": "2026-08-18T19:30:49+09:00"
         },
         {
           "order": 2,
           "media": "media/stories/2026/08/2026-08-18_1930_shift-to-park_02.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18145620865495511",
+          "instagram_media_id": "18152000185515492",
+          "posted_at": "2026-08-18T19:31:01+09:00"
         }
-      ]
+      ],
+      "last_attempt_at": "2026-08-18T19:30:36+09:00",
+      "error": null
     },
     {
       "content_id": "CAR-STORY-20260819-0745",

@@ -226,20 +226,28 @@
       "content_id": "CAR-STORY-20260819-0745",
       "publication_id": "PUB-000007",
       "scheduled_at": "2026-08-19T07:45:00+09:00",
-      "status": "pending",
+      "status": "posted",
       "retry_count": 0,
       "frames": [
         {
           "order": 1,
           "media": "media/stories/2026/08/2026-08-19_0745_brake-noise_01.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18145681384495511",
+          "instagram_media_id": "17914874832241030",
+          "posted_at": "2026-08-19T07:45:42+09:00"
         },
         {
           "order": 2,
           "media": "media/stories/2026/08/2026-08-19_0745_brake-noise_02.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18145681405495511",
+          "instagram_media_id": "18121024684855182",
+          "posted_at": "2026-08-19T07:45:55+09:00"
         }
-      ]
+      ],
+      "last_attempt_at": "2026-08-19T07:45:35+09:00",
+      "error": null
     },
     {
       "content_id": "CAR-STORY-20260820-1830",

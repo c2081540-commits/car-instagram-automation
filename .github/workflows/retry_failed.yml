@@ -1,0 +1,82 @@
+name: Retry One Failed Story
+
+on:
+  workflow_dispatch:
+    inputs:
+      content_id:
+        description: "failed content_id from data/queue.json"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  retry-failed:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: instagram-publish
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Record starting origin/main SHA
+        run: echo "START_ORIGIN_SHA=$(git rev-parse origin/main)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Require one explicit content_id
+        env:
+          RETRY_CONTENT_ID: ${{ inputs.content_id }}
+        run: |
+          if [[ -z "${RETRY_CONTENT_ID//[[:space:]]/}" ]]; then
+            echo "content_id is required" >&2
+            exit 1
+          fi
+          cp data/queue.json "$RUNNER_TEMP/queue-before.json"
+          cp data/history.json "$RUNNER_TEMP/history-before.json"
+      - name: Retry only the selected failed Story
+        env:
+          RETRY_CONTENT_ID: ${{ inputs.content_id }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          META_API_VERSION: ${{ vars.META_API_VERSION || 'v24.0' }}
+        run: python publish.py --retry-failed-content-id "$RETRY_CONTENT_ID"
+      - name: Verify only the selected content changed
+        id: scope-check
+        if: always()
+        env:
+          RETRY_CONTENT_ID: ${{ inputs.content_id }}
+        run: |
+          python - "$RUNNER_TEMP/queue-before.json" data/queue.json "$RUNNER_TEMP/history-before.json" data/history.json "$RETRY_CONTENT_ID" <<'PY'
+          import json
+          import sys
+
+          queue_before_path, queue_after_path, history_before_path, history_after_path, content_id = sys.argv[1:]
+
+          def load(path):
+              with open(path, encoding="utf-8") as handle:
+                  return json.load(handle)
+
+          def without_target(document):
+              copy = dict(document)
+              copy["posts"] = [post for post in document.get("posts", []) if post.get("content_id") != content_id]
+              return copy
+
+          queue_before = load(queue_before_path)
+          queue_after = load(queue_after_path)
+          history_before = load(history_before_path)
+          history_after = load(history_after_path)
+          if without_target(queue_before) != without_target(queue_after):
+              raise SystemExit("retry changed a different queue item")
+          if without_target(history_before) != without_target(history_after):
+              raise SystemExit("retry changed a different history item")
+          PY
+      - name: Persist selected retry state
+        if: always() && steps.scope-check.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/queue.json data/history.json

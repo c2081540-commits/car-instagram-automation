@@ -141,8 +141,8 @@
     {
       "content_id": "CAR-STORY-20260820-1215",
       "scheduled_at": "2026-08-20T12:15:00+09:00",
-      "status": "pending",
-      "retry_count": 0,
+      "status": "failed",
+      "retry_count": 1,
       "frames": [
         {
           "order": 1,
@@ -154,7 +154,9 @@
           "media": "media/stories/2026/08/2026-08-20_1215_inspection-estimate_02.png",
           "media_kind": "IMAGE"
         }
-      ]
+      ],
+      "last_attempt_at": "2026-08-20T12:15:42+09:00",
+      "error": "Meta API error 400: {'error': {'message': 'The requested resource does not exist', 'type': 'OAuthException', 'code': 24, 'error_subcode': 2207006, 'is_transient': False, 'error_user_title': 'Media Not Found', 'error_user_msg': 'The media with 18,145,828,933,495,511 cannot be found.', 'fbtrace_id': 'ANrx3hlXkH7lbPTkCtR9WFn'}}"
     },
     {
       "content_id": "CAR-STORY-20260821-2030",

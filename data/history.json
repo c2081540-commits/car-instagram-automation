@@ -285,6 +285,43 @@
       ],
       "retry_count": 0,
       "error": null
+    },
+    {
+      "content_id": "CAR-STORY-20260821-2030",
+      "publication_id": null,
+      "platform": "instagram",
+      "media_type": "STORIES",
+      "scheduled_at": "2026-08-21T20:30:00+09:00",
+      "actual_posted_at": "2026-08-21T20:31:19+09:00",
+      "status": "posted",
+      "frames": [
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-21_2030_driver-scope-insurance_01.png",
+          "media_kind": "IMAGE",
+          "container_id": "18145964389495511",
+          "instagram_media_id": "17898213366580710",
+          "posted_at": "2026-08-21T20:30:54+09:00"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-21_2030_driver-scope-insurance_02.png",
+          "media_kind": "IMAGE",
+          "container_id": "18145964410495511",
+          "instagram_media_id": "18113770936972247",
+          "posted_at": "2026-08-21T20:31:06+09:00"
+        },
+        {
+          "order": 3,
+          "media": "media/stories/2026/08/2026-08-21_2030_driver-scope-insurance_03.png",
+          "media_kind": "IMAGE",
+          "container_id": "18145964440495511",
+          "instagram_media_id": "17903276457499996",
+          "posted_at": "2026-08-21T20:31:19+09:00"
+        }
+      ],
+      "retry_count": 0,
+      "error": null
     }
   ]
 }

@@ -438,6 +438,35 @@
       ],
       "retry_count": 0,
       "error": null
+    },
+    {
+      "content_id": "CAR-STORY-20260825-1200",
+      "publication_id": "PUB-000024",
+      "platform": "instagram",
+      "media_type": "STORIES",
+      "scheduled_at": "2026-08-25T12:00:00+09:00",
+      "actual_posted_at": "2026-08-25T12:00:50+09:00",
+      "status": "posted",
+      "frames": [
+        {
+          "order": 1,
+          "media": "media/stories/2026/08/2026-08-25_1200_PUB-000024_01.png",
+          "media_kind": "IMAGE",
+          "container_id": "18146351143495511",
+          "instagram_media_id": "17944230567322053",
+          "posted_at": "2026-08-25T12:00:40+09:00"
+        },
+        {
+          "order": 2,
+          "media": "media/stories/2026/08/2026-08-25_1200_PUB-000024_02.png",
+          "media_kind": "IMAGE",
+          "container_id": "18146351167495511",
+          "instagram_media_id": "18110305069831175",
+          "posted_at": "2026-08-25T12:00:50+09:00"
+        }
+      ],
+      "retry_count": 0,
+      "error": null
     }
   ]
 }

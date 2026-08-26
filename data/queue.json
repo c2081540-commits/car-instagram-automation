@@ -482,20 +482,28 @@
       "content_id": "CAR-STORY-20260826-1200",
       "publication_id": "PUB-000026",
       "scheduled_at": "2026-08-26T12:00:00+09:00",
-      "status": "pending",
+      "status": "posted",
       "retry_count": 0,
       "frames": [
         {
           "order": 1,
           "media": "media/stories/2026/08/2026-08-26_1200_PUB-000026_01.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18146455174495511",
+          "instagram_media_id": "18161166886478931",
+          "posted_at": "2026-08-26T12:00:45+09:00"
         },
         {
           "order": 2,
           "media": "media/stories/2026/08/2026-08-26_1200_PUB-000026_02.png",
-          "media_kind": "IMAGE"
+          "media_kind": "IMAGE",
+          "container_id": "18146455207495511",
+          "instagram_media_id": "18178631869424080",
+          "posted_at": "2026-08-26T12:00:57+09:00"
         }
-      ]
+      ],
+      "last_attempt_at": "2026-08-26T12:00:33+09:00",
+      "error": null
     },
     {
       "content_id": "CAR-STORY-20260826-1900",
